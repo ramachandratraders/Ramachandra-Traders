@@ -1,0 +1,295 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║           RAMACHANDRA TRADERS — WEBSITE COMPLETE GUIDE                      ║
+║           Website ke baare mein poori jaankari                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Taiyaar kiya gaya: Ramachandra Traders ke liye
+File: index.html (ek hi file mein poori website)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  1. WEBSITE KAISE KHOLEIN (How to Open)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  → Folder mein jaayein: ramachandra-traders/
+  → index.html file par double-click karein
+  → Website apne aap browser mein khul jaayegi
+  → Koi internet ki zaroorat NAHI — poori website offline kaam karti hai!
+
+  Supported Browsers: Chrome, Firefox, Edge, Safari (sab mein kaam karta hai)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  2. FOLDER STRUCTURE (Faailon ki vyavastha)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ramachandra-traders/
+  │
+  ├── index.html                  ← Poori website yahan hai (main file)
+  ├── WEBSITE_GUIDE.txt           ← Yeh file (aap abhi padh rahe ho)
+  ├── README_ADD_FILES.txt        ← Files add karne ki quick guide
+  │
+  ├── assets/                     ← Saari images/videos yahan rakhein
+  │   ├── banner.png              ← Hero section ka background image
+  │   ├── pp.png                  ← Hero section ka profile/logo image
+  │   ├── logo/
+  │   │   └── logo.png            ← Navbar + Footer mein dikhne wala logo
+  │   ├── gallery/                ← Homepage gallery ki photos
+  │   ├── videos/                 ← Homepage gallery ke videos
+  │   ├── categories/
+  │   │   ├── tiles/              ← Tiles ki photos
+  │   │   ├── paints/             ← Paints ki photos
+  │   │   ├── electrical/         ← Electrical ki photos
+  │   │   ├── interiors/          ← Interiors ki photos
+  │   │   └── home-materials/     ← Home Materials ki photos
+  │   └── achievements/
+  │       ├── photos/             ← Achievement photos
+  │       └── videos/             ← Achievement videos
+  │
+  └── config/                     ← Settings files (text editor mein kholein)
+      ├── social-links.js         ← Social media ke links
+      ├── gallery-media.js        ← Gallery mein kaunsi photos/videos dikhein
+      ├── achievements-media.js   ← Achievements mein kaunsi media dikhein
+      └── category-media.js       ← Har category ki photos ki list
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  3. WEBSITE KE SECTIONS (Website mein kya kya hai)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Website mein yeh sections hain (upar se neeche):
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │  [1] NAVBAR (Top bar)                                                   │
+  │      Logo + navigation links + mobile hamburger menu                   │
+  │      Scroll karne par yeh sticky rehta hai (upar se chipka rehta hai)  │
+  ├─────────────────────────────────────────────────────────────────────────┤
+  │  [2] HERO (Pehla full-screen section)                                   │
+  │      Background: assets/banner.png (blurred)                           │
+  │      Profile image: assets/pp.png (circle mein)                        │
+  │      "Ramachandra Traders — Everything for Your Dream Home"             │
+  │      Buttons: Explore Categories | View Achievements                    │
+  ├─────────────────────────────────────────────────────────────────────────┤
+  │  [3] ABOUT US                                                           │
+  │      Shop ki jaankari + stats (500+ Products, 1000+ Clients, etc.)     │
+  ├─────────────────────────────────────────────────────────────────────────┤
+  │  [4] CATEGORIES (Business Categories)                                   │
+  │      5 cards: Tiles | Paints | Electrical | Interiors | Home Materials  │
+  │      Kisi card par click karein → Photos ka popup khulta hai            │
+  ├─────────────────────────────────────────────────────────────────────────┤
+  │  [5] ACHIEVEMENTS (Our Achievements)                                    │
+  │      Shop/project/award ki photos aur videos dikhti hain               │
+  │      Click karne par fullscreen mein khulti hain                        │
+  ├─────────────────────────────────────────────────────────────────────────┤
+  │  [6] GALLERY (Gallery Highlights)                                       │
+  │      Homepage par dikhne wali general photos aur videos                 │
+  │      Click karne par fullscreen lightbox mein khulti hain               │
+  ├─────────────────────────────────────────────────────────────────────────┤
+  │  [7] SOCIAL MEDIA (Stay Connected)                                      │
+  │      6 platforms ke cards:                                              │
+  │      Instagram | Facebook | YouTube | WhatsApp | X | Threads           │
+  │      Click karne par directly woh app/website khulti hai               │
+  ├─────────────────────────────────────────────────────────────────────────┤
+  │  [8] FOOTER / CONTACT                                                   │
+  │      Phone: 6370419708 (click → phone dialer khulta hai)               │
+  │      Email: ramachandratraders2000@gmail.com (click → Gmail khulta hai)│
+  │      Timings: Mon–Sun 8:00 AM – 8:00 PM                                │
+  │      Quick Links + Categories links bhi hain                            │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  4. PHOTOS/VIDEOS KAISE ADD KAREIN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  STEP 1: Photo/video sahi folder mein daalo
+  STEP 2: Config file mein us file ka naam register karo
+  STEP 3: index.html browser mein refresh karo — done!
+
+  ── GALLERY PHOTOS/VIDEOS ──────────────────────────────────────────────────
+  Folder:      assets/gallery/        (photos)
+               assets/videos/         (videos)
+  Config file: config/gallery-media.js
+
+  File kholein aur yeh format mein add karein:
+    { type: "image", src: "assets/gallery/photo1.jpg", caption: "Our Shop" },
+    { type: "video", src: "assets/videos/tour.mp4",    caption: "Shop Tour" },
+
+  ── ACHIEVEMENTS PHOTOS/VIDEOS ─────────────────────────────────────────────
+  Folder:      assets/achievements/photos/
+               assets/achievements/videos/
+  Config file: config/achievements-media.js
+
+  Format:
+    { type: "image", src: "assets/achievements/photos/award.jpg", caption: "Award 2024" },
+    { type: "video", src: "assets/achievements/videos/event.mp4", caption: "Event" },
+
+  ── CATEGORY PHOTOS ────────────────────────────────────────────────────────
+  Folder:      assets/categories/tiles/
+               assets/categories/paints/
+               assets/categories/electrical/
+               assets/categories/interiors/
+               assets/categories/home-materials/
+  Config file: config/category-media.js
+
+  Format (tiles ke liye example):
+    tiles: [
+      { src: "assets/categories/tiles/tile1.jpg", caption: "Marble Floor" },
+      { src: "assets/categories/tiles/tile2.jpg", caption: "Wall Tile"    },
+    ],
+
+  Supported formats: .jpg  .jpeg  .png  .webp  (images)
+                     .mp4  .webm               (videos)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  5. IMAGES REPLACE KAISE KAREIN (Hero / Logo)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ┌──────────────────────┬──────────────────────────────────────────────────┐
+  │  Kya replace karna   │  Kaise karein                                    │
+  ├──────────────────────┼──────────────────────────────────────────────────┤
+  │  Hero background     │  assets/banner.png ko nayi file se replace karo  │
+  │  (woh blurred image) │  (same naam rakho: banner.png)                  │
+  │                      │  YA index.html mein line ~753 update karo:       │
+  │                      │  src="assets/AAPKI-NAYI-FILE.png"               │
+  ├──────────────────────┼──────────────────────────────────────────────────┤
+  │  Hero profile image  │  assets/pp.png ko replace karo (same naam)      │
+  │  (woh circle wali)   │  YA index.html mein src="assets/pp.png" badlo   │
+  ├──────────────────────┼──────────────────────────────────────────────────┤
+  │  Navbar/Footer logo  │  assets/logo/logo.png ko replace karo           │
+  │                      │  (same naam rakho: logo.png)                    │
+  ├──────────────────────┼──────────────────────────────────────────────────┤
+  │  Banner blur badhaana│  index.html mein dhundho: blur(3px)             │
+  │  ya ghatana          │  Number badlo — e.g. blur(0px) = bilkul blur    │
+  │                      │  nahi, blur(6px) = zyada blur                   │
+  ├──────────────────────┼──────────────────────────────────────────────────┤
+  │  Banner darkness     │  index.html mein dhundho: brightness(0.38)      │
+  │  kam ya zyada karna  │  0.38 = 38% brightness (dark). Badho toh image  │
+  │                      │  zyada dikhegi — e.g. 0.55 = thoda bright       │
+  └──────────────────────┴──────────────────────────────────────────────────┘
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  6. SOCIAL MEDIA LINKS KAISE BADLE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  File: config/social-links.js
+
+  Ise Notepad ya VS Code mein kholein aur apne real links paste karein:
+
+    instagram: "https://www.instagram.com/AAPKA_PAGE",
+    facebook:  "https://www.facebook.com/AAPKA_PAGE",
+    youtube:   "https://www.youtube.com/@AAPKA_CHANNEL",
+    x:         "https://x.com/AAPKA_HANDLE",
+    threads:   "https://www.threads.net/@AAPKA_PAGE",
+    whatsapp:  "https://wa.me/91XXXXXXXXXX",
+                                 ↑ Yahan apna 10-digit number daalo
+
+  WhatsApp link format: https://wa.me/91 + aapka number (no spaces/dashes)
+  Example: 9876543210 ke liye → https://wa.me/919876543210
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  7. CONTACT DETAILS KAISE BADLEIN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  File: index.html (Notepad ya VS Code mein kholein)
+  Dhundho (Ctrl+F): "Contact Us"
+
+  Wahan yeh lines milegi — inhe edit karein:
+    📍 Apna address yahan likhein
+    📞 <a href="tel:+91XXXXXXXXXX">+91 XXXXX XXXXX</a>
+    ✉️ <a href="mailto:AAPKI@EMAIL.COM">AAPKI@EMAIL.COM</a>
+    🕐 Timings bhi wahan change kar sakte ho
+
+  Phone link: tel:+91 ke baad apna number (no spaces)
+  Email link: mailto: ke baad apna email
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  8. MOBILE PAR KAISE KAAM KARTA HAI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Website poori tarah responsive hai — mobile par bhi sahi dikhti hai.
+
+  Mobile-specific features:
+  • Phone number par tap karo → automatically phone dialer khulta hai
+  • Email par tap karo → Gmail ya default email app khulta hai
+  • WhatsApp card par tap karo → WhatsApp chat directly khulti hai
+  • Navbar mein hamburger menu (≡) → mobile navigation
+  • Gallery aur achievements → fullscreen mein kholein
+
+  iPhone (Safari) aur Android (Chrome) dono mein tested behavior hai.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  9. WEBSITE ONLINE KAISE KAREIN (Internet par upload)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Yeh website static hai — koi server ya database nahi chahiye.
+  Kisi bhi free/paid hosting par upload kar sakte ho:
+
+  FREE OPTIONS:
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  Netlify (netlify.com)   → Poora folder drag & drop karo. Done!    │
+  │  Vercel  (vercel.com)    → GitHub se connect karo ya folder upload │
+  │  GitHub Pages            → Repository mein push karo               │
+  └─────────────────────────────────────────────────────────────────────┘
+
+  Sabse aasaan: netlify.com → "Deploy without Git" → folder drag karo
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  10. WEBSITE KI TECHNICAL JAANKARI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Technology:   Pure HTML + CSS + JavaScript (koi framework nahi)
+  Files:        Sirf ek file — index.html (1205 lines)
+  Fonts:        Google Fonts — Playfair Display + DM Sans (internet se load)
+  Images:       Aapki khud ki (assets/ folder mein)
+  Database:     Koi nahi — sab static hai
+  Server:       Koi nahi — browser hi sab kuch handle karta hai
+  Internet:     Sirf fonts ke liye chahiye; baaki sab offline kaam karta hai
+
+  Features already built-in:
+  ✅ Smooth scroll animations (scroll karne par sections fade in hote hain)
+  ✅ Sticky navbar (scroll par navbar upar chipka rehta hai)
+  ✅ Fullscreen lightbox (photos/videos fullscreen mein dekhne ke liye)
+  ✅ Keyboard navigation lightbox mein (← → arrow keys, Esc to close)
+  ✅ Category modal popup (category card click par photos dikhta hai)
+  ✅ Mobile responsive (har screen size pe sahi dikhta hai)
+  ✅ Clickable phone (tel: link — dialer khulta hai)
+  ✅ Clickable email (mailto: link — Gmail/email app khulta hai)
+  ✅ WhatsApp direct chat link
+  ✅ All 6 social media with real SVG logos
+  ✅ Hero banner with blur effect
+  ✅ Scroll animation on all sections
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  11. QUICK REFERENCE — SABSE ZAROORI CHEEZEIN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ╔═══════════════════════════════╦══════════════════════════════════════════╗
+  ║  Kya karna hai               ║  Kahan karna hai                         ║
+  ╠═══════════════════════════════╬══════════════════════════════════════════╣
+  ║  Social links change karna   ║  config/social-links.js                  ║
+  ║  Gallery photos add karna    ║  assets/gallery/ + config/gallery-media  ║
+  ║  Achievement photos add      ║  assets/achievements/ + config/achiev..  ║
+  ║  Category photos add         ║  assets/categories/<naam>/ + config/cat..║
+  ║  Banner image badalna        ║  assets/banner.png replace karo          ║
+  ║  Profile image badalna       ║  assets/pp.png replace karo              ║
+  ║  Logo badalna                ║  assets/logo/logo.png replace karo       ║
+  ║  Phone/Email badalna         ║  index.html → "Contact Us" dhundho       ║
+  ║  Address badalna             ║  index.html → "Your Shop Address" dhundho║
+  ║  Timings badalna             ║  index.html → "8:00 AM" dhundho          ║
+  ╚═══════════════════════════════╩══════════════════════════════════════════╝
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Ramachandra Traders — Quality · Trust · Excellence
+  Phone: 6370419708  |  Email: ramachandratraders2000@gmail.com
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
