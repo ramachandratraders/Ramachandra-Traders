@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramachandra Traders — Everything for Your Dream Home</title>
+  <meta name="description" content="Ramachandra Traders — Your complete home solution for Tiles, Paints, Electrical, Interiors, and Home Materials." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Config files -->
+  <script src="config/social-links.js"></script>
+  <script src="config/gallery-media.js"></script>
+  <script src="config/achievements-media.js"></script>
+  <script src="config/category-media.js"></script>
+
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --cream:       #f5f0e8;
+      --warm-white:  #faf8f4;
+      --dark:        #1a1a14;
+      --dark-mid:    #2c2c22;
+      --brown:       #3d2b1f;
+      --gold:        #b8922a;
+      --gold-light:  #d4ab4e;
+      --green-dark:  #1e3a1e;
+      --green:       #2d5a2d;
+      --text-body:   #3a3a30;
+      --text-muted:  #7a7a6a;
+      --border:      rgba(184,146,42,0.25);
+      --shadow-gold: 0 0 30px rgba(184,146,42,0.18);
+      --radius:      12px;
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm-white);
+      color: var(--text-body);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a  { text-decoration: none; color: inherit; }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    /* ===== SECTION TITLE STYLE ===== */
+    .section-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(184,146,42,0.08);
+      border: 1px solid var(--border);
+      padding: 5px 16px;
+      border-radius: 30px;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    .section-title span { color: var(--gold); }
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .section-header { text-align: center; margin-bottom: 54px; }
+    .section-header .section-sub { margin: 12px auto 0; }
+
+    /* ===== REVEAL ANIMATION ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ===== DIVIDER ===== */
+    .gold-divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: 2px;
+      margin: 14px auto 0;
+    }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(250,248,244,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+    #navbar.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.09); }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center;
+      padding: 0 28px; height: 70px;
+      gap: 16px;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 12px;
+      flex-shrink: 0;
+    }
+    .nav-logo {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+    }
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--dark); line-height: 1.1;
+    }
+    .nav-name small {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem; font-weight: 500;
+      color: var(--gold); letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex; align-items: center;
+      gap: 4px; list-style: none;
+      margin-left: auto;
+    }
+    .nav-links a {
+      padding: 7px 14px;
+      font-size: 0.88rem; font-weight: 500;
+      color: var(--text-body); border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-links a:hover {
+      background: rgba(184,146,42,0.1);
+      color: var(--gold);
+    }
+    .nav-contact-btn {
+      background: var(--green-dark) !important;
+      color: var(--cream) !important;
+      padding: 8px 18px !important;
+      border-radius: 8px !important;
+    }
+    .nav-contact-btn:hover {
+      background: var(--gold) !important;
+      color: var(--dark) !important;
+    }
+    /* Hamburger */
+    .hamburger {
+      display: none; flex-direction: column;
+      gap: 5px; cursor: pointer;
+      padding: 6px; margin-left: auto;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--dark); border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-nav {
+      display: none; flex-direction: column;
+      background: var(--warm-white);
+      border-top: 1px solid var(--border);
+      padding: 14px 20px 20px;
+      gap: 4px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      padding: 11px 14px; border-radius: 8px;
+      font-size: 0.95rem; font-weight: 500;
+      color: var(--text-body);
+      transition: background 0.2s, color 0.2s;
+    }
+    .mobile-nav a:hover { background: rgba(184,146,42,0.1); color: var(--gold); }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      background-color: var(--green-dark);
+      text-align: center; padding: 120px 24px 80px;
+      overflow: hidden;
+    }
+    /* ─────────────────────────────────────────────────────────────
+       HERO BACKGROUND IMAGE
+       To replace the banner: swap  assets/banner.png  with your
+       new image file (same filename OR update the src below in
+       the <img id="hero-bg"> tag in the HTML body section).
+    ───────────────────────────────────────────────────────────── */
+    #hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      filter: blur(3px) brightness(0.38) saturate(0.85);
+      transform: scale(1.04); /* prevents blur edge bleed */
+      z-index: 0;
+    }
+    /* Gold radial glow on top of banner */
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 1;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(184,146,42,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* All hero child elements sit above background */
+    #hero > *:not(#hero-bg) { position: relative; z-index: 2; }
+    .hero-logo {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(184,146,42,0.6);
+      margin: 0 auto 28px;
+      box-shadow: 0 0 40px rgba(184,146,42,0.25);
+      animation: fadeUp 0.9s ease both;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold-light);
+      border: 1px solid rgba(184,146,42,0.4);
+      padding: 5px 18px; border-radius: 30px;
+      margin-bottom: 20px;
+      animation: fadeUp 0.9s 0.1s ease both;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      font-weight: 900; color: #fff;
+      line-height: 1.1; margin-bottom: 16px;
+      animation: fadeUp 0.9s 0.2s ease both;
+    }
+    .hero-title em { color: var(--gold-light); font-style: normal; }
+    .hero-tagline {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: rgba(255,255,255,0.82);
+      font-weight: 300; margin-bottom: 36px;
+      animation: fadeUp 0.9s 0.3s ease both;
+    }
+    .hero-btns {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+      animation: fadeUp 0.9s 0.45s ease both;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+      padding: 13px 30px; border-radius: 8px;
+      font-size: 0.95rem; font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      border: none; cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(184,146,42,0.35);
+    }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      padding: 12px 28px; border-radius: 8px;
+      font-size: 0.95rem; font-weight: 500;
+      border: 1.5px solid rgba(255,255,255,0.45);
+      transition: background 0.25s, border-color 0.25s, transform 0.2s;
+      cursor: pointer;
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.75);
+      transform: translateY(-2px);
+    }
+    .hero-scroll {
+      position: absolute; bottom: 34px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center;
+      gap: 6px; color: rgba(255,255,255,0.55);
+      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+      animation: fadeUp 1s 0.8s ease both;
+    }
+    .scroll-dot {
+      width: 28px; height: 46px;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-radius: 14px; display: flex; justify-content: center;
+      padding-top: 7px;
+    }
+    .scroll-dot::before {
+      content: '';
+      width: 4px; height: 10px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 2px;
+      animation: scrollBob 1.8s ease-in-out infinite;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollBob {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50%       { transform: translateY(10px); opacity: 0.4; }
+    }
+
+    /* ============================================================
+       ABOUT / INTRO STRIP
+    ============================================================ */
+    #about {
+      background: var(--dark);
+      padding: 72px 24px;
+    }
+    .about-inner {
+      max-width: 1000px; margin: 0 auto;
+      display: flex; align-items: center; gap: 56px;
+      flex-wrap: wrap;
+    }
+    .about-logo-wrap {
+      flex-shrink: 0;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      overflow: hidden;
+      box-shadow: 0 0 44px rgba(184,146,42,0.22);
+    }
+    .about-logo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .about-text { flex: 1; min-width: 260px; }
+    .about-text .section-tag { background: rgba(184,146,42,0.12); }
+    .about-text .section-title { color: var(--cream); }
+    .about-text .section-sub { color: rgba(245,240,232,0.65); }
+    .about-stats {
+      display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700; color: var(--gold);
+    }
+    .stat-label { font-size: 0.78rem; color: rgba(245,240,232,0.5); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* ============================================================
+       CATEGORIES
+    ============================================================ */
+    #categories { padding: 100px 24px; background: var(--warm-white); }
+    .categories-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 24px;
+    }
+    .cat-card {
+      position: relative; border-radius: var(--radius);
+      overflow: hidden; cursor: pointer;
+      background: var(--dark-mid);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s;
+      aspect-ratio: 4/5;
+    }
+    .cat-card:hover {
+      transform: translateY(-7px) scale(1.02);
+      box-shadow: 0 16px 44px rgba(0,0,0,0.18), 0 0 0 1.5px var(--gold);
+    }
+    .cat-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .cat-card:hover img { transform: scale(1.08); }
+    .cat-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,8,0.82) 0%, transparent 55%);
+    }
+    .cat-card-body {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 20px 18px;
+    }
+    .cat-icon { font-size: 1.6rem; margin-bottom: 6px; }
+    .cat-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700; color: #fff;
+    }
+    .cat-cta {
+      font-size: 0.75rem; color: var(--gold-light);
+      letter-spacing: 0.08em; margin-top: 4px;
+      opacity: 0; transform: translateY(6px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .cat-card:hover .cat-cta { opacity: 1; transform: translateY(0); }
+
+    /* ============================================================
+       ACHIEVEMENTS
+    ============================================================ */
+    #achievements { padding: 100px 24px; background: var(--cream); }
+    .achievements-grid {
+      max-width: 1200px; margin: 0 auto;
+      columns: 3 220px; gap: 18px;
+    }
+    .ach-item {
+      break-inside: avoid; margin-bottom: 18px;
+      border-radius: var(--radius); overflow: hidden;
+      position: relative; cursor: pointer;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+      transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s;
+    }
+    .ach-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.17), 0 0 0 1.5px var(--gold);
+    }
+    .ach-item img,
+    .ach-item video {
+      width: 100%; display: block;
+      object-fit: cover;
+    }
+    .ach-overlay {
+      position: absolute; inset: 0;
+      background: rgba(10,10,8,0); transition: background 0.3s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ach-item:hover .ach-overlay { background: rgba(10,10,8,0.35); }
+    .ach-play {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: var(--dark);
+      opacity: 0; transform: scale(0.7);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .ach-item:hover .ach-play { opacity: 1; transform: scale(1); }
+    .ach-empty {
+      text-align: center; color: var(--text-muted);
+      padding: 48px 0; font-size: 1rem;
+    }
+
+    /* ============================================================
+       GALLERY
+    ============================================================ */
+    #gallery { padding: 100px 24px; background: var(--dark); }
+    #gallery .section-title { color: var(--cream); }
+    #gallery .section-sub { color: rgba(245,240,232,0.6); }
+    .gallery-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .gallery-item {
+      border-radius: var(--radius); overflow: hidden;
+      position: relative; cursor: pointer;
+      background: var(--dark-mid);
+      aspect-ratio: 4/3;
+      transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s;
+    }
+    .gallery-item:hover {
+      transform: scale(1.04);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35), 0 0 0 1.5px var(--gold);
+    }
+    .gallery-item img,
+    .gallery-item video {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img,
+    .gallery-item:hover video { transform: scale(1.07); }
+    .gallery-item-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,8,0.7) 0%, transparent 50%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+    .gallery-item-caption {
+      position: absolute; bottom: 12px; left: 14px; right: 14px;
+      color: #fff; font-size: 0.82rem; font-weight: 500;
+      opacity: 0; transform: translateY(6px); transition: opacity 0.3s, transform 0.3s;
+    }
+    .gallery-item:hover .gallery-item-caption { opacity: 1; transform: translateY(0); }
+    .gallery-empty {
+      color: rgba(245,240,232,0.4); text-align: center;
+      padding: 48px 0; font-size: 1rem;
+      grid-column: 1/-1;
+    }
+
+    /* ============================================================
+       SOCIAL MEDIA
+    ============================================================ */
+    #social { padding: 100px 24px; background: var(--warm-white); }
+    .social-cards {
+      max-width: 900px; margin: 0 auto;
+      display: flex; gap: 18px; flex-wrap: wrap; justify-content: center;
+    }
+    .social-card {
+      display: flex; align-items: center; gap: 14px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 26px;
+      font-weight: 600; font-size: 0.95rem;
+      cursor: pointer; text-decoration: none;
+      color: var(--dark);
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      min-width: 170px;
+    }
+    .social-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-gold);
+      border-color: var(--gold);
+    }
+    .social-icon { font-size: 1.5rem; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .social-icon svg { width: 28px; height: 28px; }
+    .social-meta { line-height: 1.2; }
+    .social-platform { font-size: 0.72rem; color: var(--text-muted); font-weight: 400; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* ============================================================
+       CONTACT / FOOTER
+    ============================================================ */
+    #contact {
+      background: var(--dark);
+      padding: 80px 24px 0;
+    }
+    .contact-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; gap: 56px; flex-wrap: wrap;
+    }
+    .contact-brand { flex: 0 0 280px; }
+    .contact-logo {
+      width: 72px; height: 72px; border-radius: 50%;
+      object-fit: cover; border: 2px solid var(--gold);
+      margin-bottom: 16px;
+    }
+    .contact-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--cream); margin-bottom: 6px;
+    }
+    .contact-tagline { color: rgba(245,240,232,0.5); font-size: 0.88rem; line-height: 1.6; }
+    .contact-cols { display: flex; gap: 48px; flex-wrap: wrap; flex: 1; }
+    .contact-col h4 {
+      font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px; font-weight: 600;
+    }
+    .contact-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .contact-col ul a {
+      color: rgba(245,240,232,0.6); font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+    .contact-col ul a:hover { color: var(--gold-light); }
+    .contact-info p {
+      color: rgba(245,240,232,0.6); font-size: 0.88rem;
+      line-height: 1.8;
+    }
+    .footer-bottom {
+      max-width: 1100px; margin: 40px auto 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 22px 0;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 10px;
+    }
+    .footer-copy { color: rgba(245,240,232,0.35); font-size: 0.78rem; }
+    .footer-gold { color: var(--gold); }
+
+    /* ============================================================
+       LIGHTBOX / FULLSCREEN POPUP
+    ============================================================ */
+    .lightbox {
+      display: none;
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(10,10,8,0.94);
+      align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-inner {
+      position: relative;
+      max-width: 960px; width: 100%;
+      max-height: 90vh;
+      display: flex; flex-direction: column;
+      align-items: center;
+    }
+    .lightbox-close {
+      position: absolute; top: -40px; right: 0;
+      color: rgba(255,255,255,0.6); font-size: 1.4rem;
+      cursor: pointer; background: none; border: none;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: #fff; }
+    .lightbox-inner img,
+    .lightbox-inner video {
+      max-width: 100%; max-height: 80vh;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+    .lightbox-caption {
+      margin-top: 14px; color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+    }
+    .lightbox-nav {
+      display: flex; gap: 14px; margin-top: 16px;
+    }
+    .lightbox-nav button {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff; padding: 8px 20px;
+      border-radius: 8px; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .lightbox-nav button:hover { background: rgba(255,255,255,0.22); }
+
+    /* ============================================================
+       CATEGORY MODAL
+    ============================================================ */
+    .cat-modal {
+      display: none; position: fixed; inset: 0; z-index: 9000;
+      background: rgba(10,10,8,0.92);
+      overflow-y: auto; padding: 40px 20px;
+    }
+    .cat-modal.open { display: block; }
+    .cat-modal-inner {
+      max-width: 1100px; margin: 0 auto;
+      background: var(--warm-white);
+      border-radius: 16px; padding: 40px;
+    }
+    .cat-modal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 30px; flex-wrap: wrap; gap: 14px;
+    }
+    .cat-modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 700; color: var(--dark);
+    }
+    .cat-modal-close {
+      background: none; border: 1px solid var(--border);
+      padding: 8px 18px; border-radius: 8px; cursor: pointer;
+      font-size: 0.88rem; color: var(--text-muted);
+      transition: background 0.2s;
+    }
+    .cat-modal-close:hover { background: var(--cream); }
+    .cat-modal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .cat-modal-item {
+      border-radius: var(--radius); overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .cat-modal-item:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+    }
+    .cat-modal-item img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover;
+    }
+    .cat-empty {
+      color: var(--text-muted); text-align: center;
+      padding: 40px 0; grid-column: 1/-1;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .about-inner { flex-direction: column; text-align: center; }
+      .about-stats { justify-content: center; }
+      .contact-inner { flex-direction: column; }
+      .contact-cols { gap: 28px; }
+      .achievements-grid { columns: 2 160px; }
+    }
+    @media (max-width: 520px) {
+      .hero-title { font-size: 2.2rem; }
+      .achievements-grid { columns: 1; }
+      .cat-modal-inner { padding: 24px 16px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-brand">
+        <img src="assets/logo/logo.png" alt="Ramachandra Traders Logo" class="nav-logo" />
+        <div class="nav-name">
+          Ramachandra Traders
+          <small>Your Complete Home Solution</small>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#social">Social Media</a></li>
+        <li><a href="#contact" class="nav-contact-btn">Contact</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#hero" onclick="toggleMenu()">Home</a>
+      <a href="#categories" onclick="toggleMenu()">Categories</a>
+      <a href="#achievements" onclick="toggleMenu()">Achievements</a>
+      <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+      <a href="#social" onclick="toggleMenu()">Social Media</a>
+      <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section id="hero">
+    <!-- ═══════════════════════════════════════════════════════════
+         HERO BACKGROUND IMAGE
+         To replace: change  assets/banner.png  to your new file.
+         Keep the id="hero-bg" intact.
+    ═══════════════════════════════════════════════════════════ -->
+    <img id="hero-bg" src="assets/banner.png" alt="" aria-hidden="true" />
+
+    <!-- ═══════════════════════════════════════════════════════════
+         HERO PROFILE / LOGO IMAGE  (the circle at the top)
+         To replace: change  assets/pp.png  to your new file.
+    ═══════════════════════════════════════════════════════════ -->
+    <img src="assets/logo/logo.png" alt="Ramachandra Traders" class="hero-logo" />
+    <div class="hero-tag">Est. · Quality · Trust · Excellence</div>
+    <h1 class="hero-title">Ramachandra<br /><em>Traders</em></h1>
+    <p class="hero-tagline">Everything for Your Dream Home 🏡</p>
+    <div class="hero-btns">
+      <a href="#categories" class="btn-primary">Explore Categories</a>
+      <a href="#achievements" class="btn-outline">View Achievements</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-dot"></div>
+      scroll
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT
+  ============================================================ -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-logo-wrap reveal">
+        <img src="assets/logo/logo.png" alt="Ramachandra Traders" />
+      </div>
+      <div class="about-text">
+        <span class="section-tag reveal reveal-delay-1">About Us</span>
+        <h2 class="section-title reveal reveal-delay-2">Your Trusted<br /><span>Home Solution</span> Partner</h2>
+        <p class="section-sub reveal reveal-delay-3">
+          Ramachandra Traders has been serving families and builders with premium quality
+          tiles, paints, electrical fittings, interior solutions, and home materials.
+          We bring together trusted brands and expert guidance under one roof.
+        </p>
+        <div class="about-stats reveal reveal-delay-4">
+          <div class="stat">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Products</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">1000+</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">5★</div>
+            <div class="stat-label">Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CATEGORIES
+  ============================================================ -->
+  <section id="categories">
+    <div class="section-header">
+      <span class="section-tag reveal">What We Offer</span>
+      <h2 class="section-title reveal reveal-delay-1">Business <span>Categories</span></h2>
+      <div class="gold-divider reveal reveal-delay-2"></div>
+      <p class="section-sub reveal reveal-delay-3">Explore our wide range of premium home materials, each curated for quality and style.</p>
+    </div>
+    <div class="categories-grid" id="categoriesGrid"></div>
+  </section>
+
+  <!-- ============================================================
+       ACHIEVEMENTS
+  ============================================================ -->
+  <section id="achievements">
+    <div class="section-header">
+      <span class="section-tag reveal">Milestones</span>
+      <h2 class="section-title reveal reveal-delay-1">Our <span>Achievements</span></h2>
+      <div class="gold-divider reveal reveal-delay-2"></div>
+      <p class="section-sub reveal reveal-delay-3">A glimpse of our journey, milestones, projects, and proud moments.</p>
+    </div>
+    <div class="achievements-grid" id="achievementsGrid">
+      <p class="ach-empty">Add your achievement photos and videos in <code>config/achievements-media.js</code> to display them here.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GALLERY
+  ============================================================ -->
+  <section id="gallery">
+    <div class="section-header">
+      <span class="section-tag reveal" style="background:rgba(184,146,42,0.12);">Our Work</span>
+      <h2 class="section-title reveal reveal-delay-1" style="color:var(--cream);">Gallery <span>Highlights</span></h2>
+      <div class="gold-divider reveal reveal-delay-2"></div>
+      <p class="section-sub reveal reveal-delay-3" style="color:rgba(245,240,232,0.6);">Browse through our showroom, products, and completed projects.</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <p class="gallery-empty">Add photos and videos in <code>config/gallery-media.js</code> to display them here.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SOCIAL MEDIA
+  ============================================================ -->
+  <section id="social">
+    <div class="section-header">
+      <span class="section-tag reveal">Stay Connected</span>
+      <h2 class="section-title reveal reveal-delay-1">Follow Us On <span>Social Media</span></h2>
+      <div class="gold-divider reveal reveal-delay-2"></div>
+      <p class="section-sub reveal reveal-delay-3">Stay updated with our latest products, offers, and interior inspirations.</p>
+    </div>
+    <div class="social-cards" id="socialCards"></div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT / FOOTER
+  ============================================================ -->
+  <footer id="contact">
+    <div class="contact-inner">
+      <div class="contact-brand reveal">
+        <img src="assets/logo/logo.png" alt="Logo" class="contact-logo" />
+        <div class="contact-brand-name">Ramachandra Traders</div>
+        <p class="contact-tagline">Your complete home solution for tiles, paints, electrical, interiors, and more.</p>
+      </div>
+      <div class="contact-cols">
+        <div class="contact-col reveal reveal-delay-1">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#social">Social Media</a></li>
+          </ul>
+        </div>
+        <div class="contact-col reveal reveal-delay-2">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="#categories">Tiles</a></li>
+            <li><a href="#categories">Paints</a></li>
+            <li><a href="#categories">Electrical</a></li>
+            <li><a href="#categories">Interiors</a></li>
+            <li><a href="#categories">Home Materials</a></li>
+          </ul>
+        </div>
+        <div class="contact-col contact-info reveal reveal-delay-3">
+          <h4>Contact Us</h4>
+          <p>
+            📍 Your Shop Address Here<br />
+            📞 <a href="tel:+916370419708" style="color:inherit;text-decoration:none;">+91 6370419708</a><br />
+            ✉️ <a href="mailto:ramachandratraders2000@gmail.com" style="color:inherit;text-decoration:none;">ramachandratraders2000@gmail.com</a><br /><br />
+            🕐 Mon – Sun: 8:00 AM – 8:00 PM
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 <span class="footer-gold">Ramachandra Traders</span>. All rights reserved.</p>
+      <p class="footer-copy">Quality · Trust · Excellence</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       LIGHTBOX
+  ============================================================ -->
+  <div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" onclick="closeLightbox()">✕ Close</button>
+      <div id="lightboxContent"></div>
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+      <div class="lightbox-nav">
+        <button onclick="lightboxPrev()">← Prev</button>
+        <button onclick="lightboxNext()">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CATEGORY MODAL
+  ============================================================ -->
+  <div class="cat-modal" id="catModal">
+    <div class="cat-modal-inner">
+      <div class="cat-modal-header">
+        <h2 class="cat-modal-title" id="catModalTitle"></h2>
+        <button class="cat-modal-close" onclick="closeCatModal()">✕ Close</button>
+      </div>
+      <div class="cat-modal-grid" id="catModalGrid"></div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    // ── NAVBAR SCROLL ──────────────────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    // ── MOBILE MENU ─────────────────────────────────────
+    function toggleMenu() {
+      document.getElementById('hamburger').classList.toggle('open');
+      document.getElementById('mobileNav').classList.toggle('open');
+    }
+
+    // ── SCROLL REVEAL ────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── CATEGORIES RENDER ─────────────────────────────────
+    const CATEGORIES = [
+      {
+        key: 'tiles',
+        name: 'Tiles',
+        icon: '🪨',
+        desc: 'Floor, wall & designer tiles',
+        gradient: 'linear-gradient(135deg, #3a2e24, #7a6040)'
+      },
+      {
+        key: 'paints',
+        name: 'Paints',
+        icon: '🎨',
+        desc: 'Interior & exterior paints',
+        gradient: 'linear-gradient(135deg, #1e3a1e, #4a7c4a)'
+      },
+      {
+        key: 'electrical',
+        name: 'Electrical',
+        icon: '⚡',
+        desc: 'Switches, wiring & fittings',
+        gradient: 'linear-gradient(135deg, #1a2a3a, #2a4a7a)'
+      },
+      {
+        key: 'interiors',
+        name: 'Interiors',
+        icon: '🛋️',
+        desc: 'Interior design solutions',
+        gradient: 'linear-gradient(135deg, #2e1a2e, #7a3a6a)'
+      },
+      {
+        key: 'home-materials',
+        name: 'Home Materials',
+        icon: '🏗️',
+        desc: 'Plywood, boards & more',
+        gradient: 'linear-gradient(135deg, #2e2a1a, #7a6030)'
+      }
+    ];
+
+    const catGrid = document.getElementById('categoriesGrid');
+    CATEGORIES.forEach((cat, i) => {
+      // Check if there are custom images for this category
+      const media = (typeof CATEGORY_MEDIA !== 'undefined' && CATEGORY_MEDIA[cat.key]) || [];
+      const firstImg = media.length > 0 ? media[0].src : null;
+
+      const card = document.createElement('div');
+      card.className = 'cat-card reveal';
+      card.style.transitionDelay = `${i * 0.07}s`;
+
+      if (firstImg) {
+        card.innerHTML = `
+          <img src="${firstImg}" alt="${cat.name}" loading="lazy" />
+          <div class="cat-card-overlay"></div>`;
+      } else {
+        card.innerHTML = `<div style="width:100%;height:100%;background:${cat.gradient};"></div>`;
+      }
+
+      card.innerHTML += `
+        <div class="cat-card-body">
+          <div class="cat-icon">${cat.icon}</div>
+          <div class="cat-name">${cat.name}</div>
+          <div class="cat-cta">View Collection →</div>
+        </div>`;
+
+      card.addEventListener('click', () => openCatModal(cat));
+      catGrid.appendChild(card);
+      revealObserver.observe(card);
+    });
+
+    // ── CATEGORY MODAL ────────────────────────────────────
+    function openCatModal(cat) {
+      document.getElementById('catModalTitle').textContent = cat.name;
+      const grid = document.getElementById('catModalGrid');
+      grid.innerHTML = '';
+      const media = (typeof CATEGORY_MEDIA !== 'undefined' && CATEGORY_MEDIA[cat.key]) || [];
+
+      if (media.length === 0) {
+        grid.innerHTML = `<p class="cat-empty">No photos yet. Add them to <code>assets/categories/${cat.key}/</code> and register in <code>config/category-media.js</code>.</p>`;
+      } else {
+        media.forEach((item, idx) => {
+          const el = document.createElement('div');
+          el.className = 'cat-modal-item';
+          el.innerHTML = `<img src="${item.src}" alt="${item.caption || cat.name}" loading="lazy" />`;
+          el.addEventListener('click', () => {
+            openLightbox(media, idx, 'image');
+          });
+          grid.appendChild(el);
+        });
+      }
+
+      document.getElementById('catModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCatModal() {
+      document.getElementById('catModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ── ACHIEVEMENTS RENDER ────────────────────────────────
+    const achGrid = document.getElementById('achievementsGrid');
+    const achMedia = (typeof ACHIEVEMENTS_MEDIA !== 'undefined') ? ACHIEVEMENTS_MEDIA : [];
+
+    if (achMedia.length > 0) {
+      achGrid.innerHTML = '';
+      achMedia.forEach((item, idx) => {
+        const el = document.createElement('div');
+        el.className = 'ach-item';
+        if (item.type === 'video') {
+          el.innerHTML = `
+            <video src="${item.src}" muted playsinline preload="metadata"></video>
+            <div class="ach-overlay"><div class="ach-play">▶</div></div>`;
+        } else {
+          el.innerHTML = `
+            <img src="${item.src}" alt="${item.caption || 'Achievement'}" loading="lazy" />
+            <div class="ach-overlay"><div class="ach-play">🔍</div></div>`;
+        }
+        el.addEventListener('click', () => openLightbox(achMedia, idx, item.type));
+        achGrid.appendChild(el);
+      });
+    }
+
+    // ── GALLERY RENDER ─────────────────────────────────────
+    const galleryGrid = document.getElementById('galleryGrid');
+    const galleryMedia = (typeof GALLERY_MEDIA !== 'undefined') ? GALLERY_MEDIA : [];
+
+    if (galleryMedia.length > 0) {
+      galleryGrid.innerHTML = '';
+      galleryMedia.forEach((item, idx) => {
+        const el = document.createElement('div');
+        el.className = 'gallery-item';
+        if (item.type === 'video') {
+          el.innerHTML = `
+            <video src="${item.src}" muted playsinline preload="metadata"></video>
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-caption">▶ ${item.caption || 'Video'}</div>`;
+        } else {
+          el.innerHTML = `
+            <img src="${item.src}" alt="${item.caption || 'Gallery'}" loading="lazy" />
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-caption">${item.caption || ''}</div>`;
+        }
+        el.addEventListener('click', () => openLightbox(galleryMedia, idx, item.type));
+        galleryGrid.appendChild(el);
+      });
+    }
+
+    // ── SOCIAL CARDS RENDER ────────────────────────────────
+    const SOCIAL_ICONS = {
+      instagram: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ig-g1" cx="30%" cy="107%" r="120%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="6" fill="url(#ig-g1)"/><rect x="2" y="2" width="20" height="20" rx="6" fill="none" stroke="white" stroke-width="0"/><circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="2" fill="none"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>`,
+      facebook: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#1877F2"/><path d="M16 8h-2a1 1 0 0 0-1 1v2h3l-.5 3H13v7h-3v-7H8v-3h2V9a4 4 0 0 1 4-4h2v3z" fill="white"/></svg>`,
+      youtube: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#FF0000"/><path d="M20.5 7.5s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.9C15.5 4.5 12 4.5 12 4.5s-3.5 0-5.7.1c-.4.1-1.2.1-2 .9-.6.6-.8 2-.8 2S3.3 9.1 3.3 10.7v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.8.8 1.8.8 2.3.8C8 18.4 12 18.5 12 18.5s3.5 0 5.7-.2c.4-.1 1.2-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5c0-1.6-.2-3.2-.2-3.2zm-11.7 6.5V9.5l5.5 2.3-5.5 2.2z" fill="white"/></svg>`,
+      x: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#000"/><path d="M18.3 4h-2.4l-3.9 5-3.6-5H4.2l5.7 7.7L4 20h2.4l4.2-5.4L15 20h4.2l-6-8.1L18.3 4zm-2.1 14.3-9.4-12.6h1.3l9.4 12.6h-1.3z" fill="white"/></svg>`,
+      threads: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#000"/><path d="M16.5 11.3c-.1-.1-.3-.1-.4-.2-.1-1.9-1.1-3-2.8-3.1h-.1c-1 0-1.9.4-2.4 1.2l.9.6c.4-.5.9-.8 1.5-.8h.1c.9.1 1.6.6 1.7 1.7-.5-.1-1-.1-1.5-.1-1.6 0-2.6.8-2.6 2.1 0 1.3 1.1 2.1 2.5 2.1 1.2 0 2.1-.6 2.5-1.5.1.5.1 1 0 1.5-.3 1.5-1.5 2.4-3.1 2.4-2.1 0-3.7-1.7-3.7-4.2s1.6-4.5 3.9-4.5c1.9 0 3.2 1.1 3.5 2.8zm-3.3 2.5c-.7 0-1.2-.4-1.2-.9 0-.6.5-.9 1.4-.9.4 0 .9 0 1.3.1-.1 1-.7 1.7-1.5 1.7z" fill="white"/></svg>`,
+      whatsapp: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#25D366"/><path d="M12 4a8 8 0 0 0-6.9 12L4 20l4.1-1.1A8 8 0 1 0 12 4zm4.1 11c-.2.5-1 .9-1.4 1-.4 0-.7.1-2.2-.5s-2.5-2-2.6-2.1c-.1-.1-.9-1.2-.9-2.3s.7-1.6 1-1.9c.2-.3.5-.3.7-.3h.5c.2 0 .3 0 .5.4l.6 1.5c.1.2.1.3 0 .5l-.3.4-.4.4c.1.2.5.9 1.1 1.4.7.6 1.3.8 1.5.9l.4-.5c.2-.3.4-.3.6-.2l1.4.7c.2.1.3.2.3.3 0 .2-.1.7-.4 1.3z" fill="white"/></svg>`,
+    };
+
+    const socialDefs = [
+      { key: 'instagram', label: 'Instagram',   platform: 'Follow us'    },
+      { key: 'facebook',  label: 'Facebook',    platform: 'Like our page' },
+      { key: 'youtube',   label: 'YouTube',     platform: 'Subscribe'    },
+      { key: 'whatsapp',  label: 'WhatsApp',    platform: 'Chat with us' },
+      { key: 'x',         label: 'X (Twitter)', platform: 'Follow us'    },
+      { key: 'threads',   label: 'Threads',     platform: 'Follow us'    },
+    ];
+
+    const links = (typeof SOCIAL_LINKS !== 'undefined') ? SOCIAL_LINKS : {};
+    const socialCards = document.getElementById('socialCards');
+    socialDefs.forEach((s, i) => {
+      const a = document.createElement('a');
+      a.href   = links[s.key] || '#';
+      a.target = '_blank';
+      a.rel    = 'noopener noreferrer';
+      a.className = 'social-card reveal';
+      a.style.transitionDelay = `${i * 0.08}s`;
+      a.innerHTML = `
+        <span class="social-icon">${SOCIAL_ICONS[s.key]}</span>
+        <div class="social-meta">
+          <div>${s.label}</div>
+          <div class="social-platform">${s.platform}</div>
+        </div>`;
+      socialCards.appendChild(a);
+      revealObserver.observe(a);
+    });
+
+    // ── LIGHTBOX ──────────────────────────────────────────
+    let lbItems = [];
+    let lbIndex = 0;
+
+    function openLightbox(items, idx, type) {
+      lbItems = items;
+      lbIndex = idx;
+      renderLightbox();
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function renderLightbox() {
+      const item = lbItems[lbIndex];
+      const content = document.getElementById('lightboxContent');
+      if (item.type === 'video') {
+        content.innerHTML = `<video src="${item.src}" controls autoplay style="max-width:100%;max-height:80vh;border-radius:10px;"></video>`;
+      } else {
+        content.innerHTML = `<img src="${item.src}" alt="${item.caption || ''}" />`;
+      }
+      document.getElementById('lightboxCaption').textContent = item.caption || '';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.getElementById('lightboxContent').innerHTML = '';
+      document.body.style.overflow = '';
+    }
+
+    function closeLightboxOutside(e) {
+      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    }
+
+    function lightboxPrev() {
+      lbIndex = (lbIndex - 1 + lbItems.length) % lbItems.length;
+      renderLightbox();
+    }
+    function lightboxNext() {
+      lbIndex = (lbIndex + 1) % lbItems.length;
+      renderLightbox();
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowLeft')   lightboxPrev();
+      if (e.key === 'ArrowRight')  lightboxNext();
+    });
+  </script>
+</body>
+</html>

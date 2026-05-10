@@ -1,0 +1,23 @@
+═══════════════════════════════════════════════════════
+  BUSINESS CATEGORIES — PAINTS
+  Paints (Berger, Asian, emulsion, exterior, etc.)
+  (Website ke "Business Categories" section mein dikhega)
+═══════════════════════════════════════════════════════
+
+STEP 1: Is category ki photos is folder mein copy karo
+        Supported formats: .jpg  .jpeg  .png  .webp
+
+STEP 2: config/category-media.js file kholein (Notepad se)
+        "paints" section dhundho aur photos add karein:
+
+  paints: [
+    {{ src: "assets/categories/paints/photo1.jpg", caption: "Aapka Caption" }},
+    {{ src: "assets/categories/paints/photo2.jpg", caption: "Aapka Caption" }},
+  ],
+
+STEP 3: index.html browser mein refresh karo
+        "paints" card click karne par photos popup mein dikhegi!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NOTE: Pehli photo category card par bhi thumbnail ki tarah dikhegi
+═══════════════════════════════════════════════════════
